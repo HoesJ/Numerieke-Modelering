@@ -1,6 +1,6 @@
 function v = polyval2(p,x,y)
 %POLYVAL2 Evaluate bivariate and univariate polyanalytic polynomials.
-%   v = polyval2(p,xy) computes the values v(i) of the polynomial p in two
+%   v = polyval2(p,x,y) computes the values v(i) of the polynomial p in two
 %   real variables (x,y) at the points (xy(i,1),xy(i,2)). The polynomial is
 %   represented as [1 y ... y^dy]*p*[1;x;...;x^dx].
 %

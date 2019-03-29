@@ -14,12 +14,11 @@ M(length(deltaX),1) = deltaX(end);
 % Create right-hand side matrix
 deltaF = diff(f');
 df_dx = deltaF./repmat(deltaX, 1, size(deltaF,2));
-b = df_dx - circshift(df_dx,1);
+b = 6*(df_dx - circshift(df_dx,1));
 
 % Get S values
 S = M\b;
 S = [S;S(1,:)];
-
 
 y = zeros(size(f,1),length(t));
 for k = 1:length(t)
