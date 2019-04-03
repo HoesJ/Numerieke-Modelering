@@ -19,19 +19,22 @@ hold off
 
 %% Checking sine
 resolution=1000;
-maxN = 500;
+maxN = 40;
 res = ones(1,maxN-2);
-for p = 2:maxN
+for p = 7:9:maxN
 x = linspace(0, 2*pi, p);
 f = sin(x) + sin(4*x)/2;
 eval = linspace(0,2*pi,resolution);
 
 approx = periospline(x,f(1:end-1),eval);
 exact = sin(eval) + sin(4*eval)/2;
+subplot(2,2,ceil(p/9));
+plot(eval, approx-exact);
+title(sprintf('Fout van de spline met %i abcissen',p));
 res(p-1) = max(abs(approx -  exact));
 end
 
-semilogy(2:maxN, res);
+% semilogy(2:maxN, res);
 % plot(eval, approx);
 % hold on
 % plot(eval,exact);
